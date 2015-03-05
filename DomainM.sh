@@ -25,7 +25,7 @@ echo "</Virtual Host>" >> /etc/apache2/sites-available/"$domainname".conf
 echo "已完成。"
 a2ensite "$domainname".conf
 service apache2 reload
-elif [ "$dcrol" == '删除域名' ]; then
+elif [ "$dm" == '删除域名' ]; then
 echo ""
 echo -n "请输入您希望删除的完整域名，不含conf: "
 read domainname
