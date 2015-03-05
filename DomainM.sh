@@ -9,6 +9,8 @@ echo ""
 
 function DomainManage()
 {
+echo "[提示] 请选择您要的操作: (1~2)"
+select dm in  '增加域名' '删除域名'; do break; done
 if [ "$dm" == '增加域名' ]; then
 echo ""
 echo -n "请输入您希望增加的完整域名（不含conf）,如lokyshin.com，blog.lokyshin.com: "
@@ -45,8 +47,6 @@ echo "您现有的域名为:"
 ls /etc/apache2/sites-available
 echo "您已启用的域名为: "
 ls /etc/apache2/sites-enabled
-echo "[提示] 请选择您要的操作: (1~2)"
-select dm in  '增加域名' '删除域名'; do break; done
 DomainManage
 echo -n "是否继续操作?回车继续，输入n回车退出。"
 read choice
