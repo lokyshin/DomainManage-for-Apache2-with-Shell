@@ -16,12 +16,12 @@ echo ""
 echo -n "请输入您希望增加的完整域名（不含conf）,如lokyshin.com，blog.lokyshin.com: "
 read domainname
 echo "#写入配置文件..."
-echo "<Virtual Host *:80>" > /etc/apache2/sites-available/"$domainname".conf
+echo "<VirtualHost *:80>" > /etc/apache2/sites-available/"$domainname".conf
 echo "  ServerAdmin admin@$domainname" >> /etc/apache2/sites-available/"$domainname".conf
 echo "  DocumentRoot /var/www/$domainname" >> /etc/apache2/sites-available/"$domainname".conf
 echo "  ErrorLog \${APACHE_LOG_DIR}/error.log" >> /etc/apache2/sites-available/"$domainname".conf
 echo "  CustomLog \${APACHE_LOG_DIR}/access.log combined" >> /etc/apache2/sites-available/"$domainname".conf
-echo "</Virtual Host>" >> /etc/apache2/sites-available/"$domainname".conf
+echo "</VirtualHost>" >> /etc/apache2/sites-available/"$domainname".conf
 echo "已完成。"
 a2ensite "$domainname".conf
 service apache2 reload
